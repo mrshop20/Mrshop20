@@ -3,623 +3,1165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR SHOP | Premium Cannabis Delivery</title>
+    <title>@mrshop20 | Premium Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #00d084;
+            --gold: #ffd700;
+            --danger: #ff4757;
+            --purple: #8e44ad;
+            --text: #ffffff;
+            --text-muted: #b0b0b0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0f;
-            color: #fff;
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        .age-gate {
-            background: #cc0000;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .delivery-bar {
-            background: #00ff88;
-            color: #000;
-            text-align: center;
-            padding: 12px;
-            font-weight: bold;
-        }
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(180deg, rgba(0,255,136,0.1) 0%, transparent 100%);
-        }
-        .logo {
-            font-size: 48px;
-            font-weight: 900;
-            color: #00ff88;
-            letter-spacing: 8px;
-        }
-        .telegram {
-            display: inline-block;
-            background: #0088cc;
-            color: #fff;
-            padding: 10px 25px;
-            border-radius: 25px;
-            margin-top: 15px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 20px;
-            background: rgba(255,255,255,0.03);
-        }
-        .feature {
-            background: rgba(255,255,255,0.05);
-            padding: 12px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(0,255,136,0.3);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .category {
-            margin-bottom: 40px;
-        }
-        .cat-header {
-            background: linear-gradient(135deg, rgba(0,255,136,0.2) 0%, rgba(0,100,255,0.1) 100%);
-            padding: 25px;
-            border-radius: 15px 15px 0 0;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-bottom: none;
-        }
-        .cat-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-        .cat-price {
-            color: #00ff88;
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 0 0 15px 15px;
-        }
-        .product {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s;
-        }
-        .product:hover {
-            transform: translateY(-5px);
-            border-color: #00ff88;
-        }
-        .product img {
+
+        /* Age Verification */
+        #age-verify {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .product-info {
-            padding: 15px;
-        }
-        .product-name {
-            font-size: 18px;
-            font-weight: 700;
-            color: #00ff88;
-            margin-bottom: 5px;
-        }
-        .product-desc {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 10px;
-        }
-        .product-price {
-            display: inline-block;
-            background: #00ff88;
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-weight: 700;
-        }
-        .brands {
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .age-box {
+            background: var(--secondary);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            border: 2px solid var(--danger);
+            box-shadow: 0 0 50px rgba(255,71,87,0.3);
+        }
+
+        .age-box h2 {
+            color: var(--danger);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .age-box p {
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .age-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            padding: 0 20px 20px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-top: none;
         }
-        .brand {
-            background: rgba(255,215,0,0.2);
-            color: #ffd700;
-            padding: 8px 15px;
-            border-radius: 15px;
-            font-size: 14px;
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
             font-weight: 600;
-            border: 1px solid rgba(255,215,0,0.3);
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .special-item {
+
+        .btn-yes {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,208,132,0.4);
+        }
+
+        .btn-no {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        .btn-no:hover {
+            background: #ff6b7a;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26,26,26,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            margin: 10px 0;
-            background: rgba(255,0,100,0.1);
-            border-left: 4px solid #ff0066;
-            border-radius: 8px;
         }
-        .cta {
-            display: block;
-            background: #00ff88;
-            color: #000;
-            text-align: center;
-            padding: 18px;
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 18px;
-            margin: 20px;
-            border-radius: 10px;
+            letter-spacing: -1px;
         }
-        footer {
+
+        .telegram-btn {
+            background: #0088cc;
+            color: #fff;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,136,204,0.3);
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,136,204,0.5);
+            background: #0099e6;
+        }
+
+        /* Category Navigation */
+        .cat-nav {
+            background: rgba(45,45,45,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cat-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cat-nav a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .cat-nav a:hover, .cat-nav a.active {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url('https://i.imgur.com/GHbrKxg.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
+            position: relative;
         }
-        .warning {
-            background: rgba(255,0,0,0.1);
-            border: 2px solid #cc0000;
-            color: #ff4444;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px auto;
+
+        .hero-content {
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(45deg, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
             max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--danger);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 140px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: -2.5rem;
+            margin-bottom: 2rem;
+            margin-left: 3.5rem;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border-color: var(--accent);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.8rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .product-details {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Special/Strongdrugs Section */
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .special-card {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a1a1a 100%);
+            border: 2px solid;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .special-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .special-card.coke { border-color: #fff; }
+        .special-card.lsd { border-color: var(--purple); box-shadow: 0 0 30px rgba(142,68,173,0.2); }
+        .special-card.meth { border-color: #74b9ff; box-shadow: 0 0 30px rgba(116,185,255,0.2); }
+        .special-card.mdma { border-color: #ff6b9d; box-shadow: 0 0 30px rgba(255,107,157,0.2); }
+
+        .special-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .special-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .special-desc {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .special-price {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Spain Clubs Section */
+        .spain-section {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 5rem 0;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spain-section::before {
+            content: '🇪🇸';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 15rem;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .spain-section h2 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spain-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .spain-info h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .spain-info ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .spain-info li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .spain-info li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
             font-weight: bold;
+            font-size: 1.2rem;
         }
-        @media (max-width: 600px) {
-            .logo { font-size: 32px; }
-            .products { grid-template-columns: 1fr; }
+
+        .price-highlight {
+            background: var(--accent);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-block;
+            margin: 0.5rem 0;
         }
+
+        .spain-alt {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .spain-alt h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-telegram {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0088cc;
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 2rem 0;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,136,204,0.3);
+        }
+
+        .footer-telegram:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,136,204,0.5);
+        }
+
+        .disclaimer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #636e72;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .warning-badge {
+            display: inline-block;
+            background: var(--danger);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content h1 { font-size: 3rem; }
+            .section-header h2 { font-size: 2rem; }
+            .spain-content { grid-template-columns: 1fr; gap: 2rem; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero { height: 50vh; min-height: 400px; }
+            .cat-nav { top: 65px; }
+            .cat-nav ul { gap: 0.5rem; }
+            .cat-nav a { font-size: 0.8rem; padding: 0.5rem 1rem; }
+            .section { scroll-margin-top: 130px; }
+            .container { padding: 2rem 1rem; }
+            .spain-section { padding: 2rem; }
+            .age-box { padding: 2rem; margin: 1rem; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00b371;
+        }
+
+        /* Utility */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 2rem; }
     </style>
 </head>
 <body>
-    <div class="age-gate">🔞 VIETATO AI MINORI DI 18 ANNI - 18+ ONLY 🔞</div>
-    <div class="delivery-bar">⚡ MAXIMUM 1 HOUR DELIVERY - DISCREET PACKAGING ⚡</div>
-    
+
+    <!-- Age Verification Modal -->
+    <div id="age-verify">
+        <div class="age-box">
+            <h2>🔞 18+ ONLY</h2>
+            <p>This website contains content related to cannabis and other adult substances. You must be 18 years or older to enter.</p>
+            <p><strong>By entering you confirm you are of legal age.</strong></p>
+            <div class="age-buttons">
+                <button class="btn btn-yes" onclick="verifyAge(true)">Yes, I am 18+</button>
+                <button class="btn btn-no" onclick="verifyAge(false)">Leave Site</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header>
-        <div class="logo">MR SHOP</div>
-        <p style="color: #888; margin-top: 10px;">Premium Cannabis & Psychedelics</p>
-        <a href="https://t.me/mrshop20" class="telegram">📱 @mrshop20</a>
+        <nav>
+            <a href="#" class="logo">@mrshop20</a>
+            <a href="https://t.me/mrshop20" target="_blank" class="telegram-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.122-2.678-1.8-1.185-.78-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.093.034.305.019.471z"/>
+                </svg>
+                Order on Telegram
+            </a>
+        </nav>
     </header>
 
-    <div class="features">
-        <div class="feature">🚀 1 Hour Max</div>
-        <div class="feature">📦 Discreet</div>
-        <div class="feature">🔒 Secure</div>
-        <div class="feature">⭐ Premium</div>
+    <!-- Category Navigation -->
+    <div class="cat-nav">
+        <ul>
+            <li><a href="#weed" class="active">🌿 Weed</a></li>
+            <li><a href="#hash">🍯 Hash</a></li>
+            <li><a href="#edibles">🍫 Edibles</a></li>
+            <li><a href="#vape">💨 Vapes</a></li>
+            <li><a href="#mushrooms">🍄 Mushrooms</a></li>
+            <li><a href="#prerolls">🚬 Prerolls</a></li>
+            <li><a href="#special">🔥 Special</a></li>
+        </ul>
     </div>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Quality</h1>
+            <p>Direct from the source • Discreet Delivery • Professional Service</p>
+            <div class="hero-badge">🔞 18+ ONLY • Adults Only</div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
     <div class="container">
-        <!-- FLOWERS -->
-        <div class="category">
-            <div class="cat-header">
-                <div class="cat-title">🌿 FLOWERS</div>
-                <div class="cat-price">€12/gram | 25-29% THC</div>
+
+        <!-- WEED / FLOWERS -->
+        <section id="weed" class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Flowers</h2>
             </div>
-            <div class="products">
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=400&h=300&fit=crop" alt="Gelato">
+            <p class="section-subtitle">Premium Indoor • 25-29% THC • 12€/g</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/OEID9J5.jpg" alt="Gelato" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Gelato</div>
-                        <div class="product-desc">Sweet dessert strain, purple frosty buds</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 27% THC • Sweet & Creamy</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1602161833201-d2d7c106c5f2?w=400&h=300&fit=crop" alt="Runtz">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/xJbwEnS.jpg" alt="Runtz" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Runtz</div>
-                        <div class="product-desc">Candy-like, colorful fruity nugs</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 26% THC • Fruity & Potent</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1556928045-16f7f50be0f3?w=400&h=300&fit=crop" alt="Snow Cone">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/DSI9CUX.jpg" alt="Snow Cone" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Snow Cone</div>
-                        <div class="product-desc">White frosty, citrus pine flavor</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 25% THC • Frosty & Fresh</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1620735692151-4c7056736f5e?w=400&h=300&fit=crop" alt="Purple Platinum">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/HDugCb7.jpg" alt="Purple Platinum" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Purple Platinum</div>
-                        <div class="product-desc">Dark purple, silver coating</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 28% THC • Grape & Berry</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?w=400&h=300&fit=crop" alt="Moonrock">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/gg7aY8w.jpg" alt="Moonrock" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Moonrock</div>
-                        <div class="product-desc">Kief covered, 50%+ THC</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 29% THC • Ultra Potent</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83c30b?w=400&h=300&fit=crop" alt="Cookies">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/sq6oxsn.jpg" alt="Cookies" class="product-image">
                     <div class="product-info">
-                        <div class="product-name">Cookies (GSC)</div>
-                        <div class="product-desc">Sweet earthy, purple green buds</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-name">Cookies</div>
+                        <div class="product-details">Premium Indoor • 26% THC • Sweet & Earthy</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=400&h=300&fit=crop" alt="Green Crack">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/z4pk53p.jpg" alt="Green Crack" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Green Crack</div>
-                        <div class="product-desc">Bright green, energetic sativa</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 25% THC • Energetic & Citrus</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1602161833201-d2d7c106c5f2?w=400&h=300&fit=crop" alt="White Widow">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/89Jx71M.jpg" alt="White Widow" class="product-image">
                     <div class="product-info">
                         <div class="product-name">White Widow</div>
-                        <div class="product-desc">White frosty, classic Dutch</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 26% THC • Classic & Balanced</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1556928045-16f7f50be0f3?w=400&h=300&fit=crop" alt="Lemon Cherry">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/Iq0lfP9.jpg" alt="Lemon Cherry" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Lemon Cherry</div>
-                        <div class="product-desc">Citrus cherry, colorful buds</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 27% THC • Citrus & Sweet</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1620735692151-4c7056736f5e?w=400&h=300&fit=crop" alt="Blue Dream">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/YBIwKwr.jpg" alt="Blue Dream" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Blue Dream</div>
-                        <div class="product-desc">Blueberry, balanced hybrid</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 25% THC • Berry & Herbal</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?w=400&h=300&fit=crop" alt="Northern Lights">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/KohotAS.jpg" alt="Northern Lights" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Northern Lights</div>
-                        <div class="product-desc">Pure indica, resinous dense</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 26% THC • Spicy & Sweet</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83c30b?w=400&h=300&fit=crop" alt="Sour Diesel">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/SYnzMLV.jpg" alt="Sour Diesel" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Sour Diesel</div>
-                        <div class="product-desc">Pungent diesel, energizing</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 27% THC • Diesel & Pungent</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=400&h=300&fit=crop" alt="Rainbow Zaza">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/VoKcbTT.jpg" alt="Rainbow Zaza" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Rainbow Zaza</div>
-                        <div class="product-desc">Exotic colorful, heavy hitting</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 28% THC • Colorful & Exotic</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1602161833201-d2d7c106c5f2?w=400&h=300&fit=crop" alt="Bubblegum Gusher">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/FuC2OLt.jpg" alt="Bubblegum Gusher" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Bubblegum Gusher</div>
-                        <div class="product-desc">Sweet pink, relaxing indica</div>
-                        <div class="product-price">€12/g</div>
+                        <div class="product-details">Premium Indoor • 26% THC • Sweet & Fruity</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
-            </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
 
-        <!-- VAPES -->
-        <div class="category">
-            <div class="cat-header">
-                <div class="cat-title">💨 VAPES</div>
-                <div class="cat-price">€65 | 0.5ml | 85% THC</div>
-            </div>
-            <div class="products">
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1579972667560-fb55c642de6e?w=400&h=300&fit=crop" alt="Zkittlez">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/sfc65w2.jpg" alt="Premium Strain" class="product-image">
                     <div class="product-info">
-                        <div class="product-name">Zkittlez</div>
-                        <div class="product-desc">Tropical fruit, relaxing indica</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" alt="Runtz">
-                    <div class="product-info">
-                        <div class="product-name">Runtz</div>
-                        <div class="product-desc">Candy sweetness, creamy</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1563298723-dcfebaa266e3?w=400&h=300&fit=crop" alt="Cookie">
-                    <div class="product-info">
-                        <div class="product-name">Cookie</div>
-                        <div class="product-desc">Vanilla dessert, relaxing</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1579972667560-fb55c642de6e?w=400&h=300&fit=crop" alt="Snow">
-                    <div class="product-info">
-                        <div class="product-name">Snow</div>
-                        <div class="product-desc">Clear distillate, pure THC</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" alt="Blue Dream">
-                    <div class="product-info">
-                        <div class="product-name">Blue Dream</div>
-                        <div class="product-desc">Blueberry, balanced high</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1563298723-dcfebaa266e3?w=400&h=300&fit=crop" alt="White Widow">
-                    <div class="product-info">
-                        <div class="product-name">White Widow</div>
-                        <div class="product-desc">Earthy pine, classic smooth</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1579972667560-fb55c642de6e?w=400&h=300&fit=crop" alt="Amnesia">
-                    <div class="product-info">
-                        <div class="product-name">Amnesia</div>
-                        <div class="product-desc">Lemon haze, energetic</div>
-                        <div class="product-price">€65</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" alt="Crack">
-                    <div class="product-info">
-                        <div class="product-name">Green Crack</div>
-                        <div class="product-desc">Mango tropical, focus</div>
-                        <div class="product-price">€65</div>
+                        <div class="product-name">Premium Selection</div>
+                        <div class="product-details">Rotating Stock • Ask for availability</div>
+                        <div class="product-price">12€ <span>/ gram</span></div>
                     </div>
                 </div>
             </div>
-            <div class="brands">
-                <div class="brand">Boutique Switch</div>
-                <div class="brand">Rug Zar</div>
-                <div class="brand">MUHAMEDS</div>
-                <div class="brand">STIIIZY</div>
-                <div class="brand">WHOLEMELT</div>
-                <div class="brand">Imking</div>
-            </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
-
-        <!-- MUSHROOMS -->
-        <div class="category">
-            <div class="cat-header">
-                <div class="cat-title">🍄 MUSHROOMS</div>
-                <div class="cat-price">€8/gram | Psilocybin</div>
-            </div>
-            <div class="products">
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Psilocybe_cubensis_Colombia.jpg/640px-Psilocybe_cubensis_Colombia.jpg" alt="Golden Teacher">
-                    <div class="product-info">
-                        <div class="product-name">Golden Teacher</div>
-                        <div class="product-desc">Spiritual classic, golden caps</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Psilocybe_cubensis_Ecuador.jpg/640px-Psilocybe_cubensis_Ecuador.jpg" alt="Albinos">
-                    <div class="product-info">
-                        <div class="product-name">Albinos (A+)</div>
-                        <div class="product-desc">White ghostly, potent</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Psilocybe_cubensis_3.jpg/640px-Psilocybe_cubensis_3.jpg" alt="Purple Mystic">
-                    <div class="product-info">
-                        <div class="product-name">Purple Mystic</div>
-                        <div class="product-desc">Rare purple, mystical</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hericium_erinaceus_1.jpg/640px-Hericium_erinaceus_1.jpg" alt="Lion's Mane">
-                    <div class="product-info">
-                        <div class="product-name">Lion's Mane</div>
-                        <div class="product-desc">White fluffy, nootropic</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Pleurotus_ostreatus_JPG1.jpg/640px-Pleurotus_ostreatus_JPG1.jpg" alt="Oysters">
-                    <div class="product-info">
-                        <div class="product-name">Oysters</div>
-                        <div class="product-desc">Grey fan, immune support</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Psilocybe_cubensis_Colombia.jpg/640px-Psilocybe_cubensis_Colombia.jpg" alt="Amazon">
-                    <div class="product-info">
-                        <div class="product-name">Amazonian</div>
-                        <div class="product-desc">Large golden, spiritual</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Psilocybe_cubensis_3.jpg/640px-Psilocybe_cubensis_3.jpg" alt="Liberty Caps">
-                    <div class="product-info">
-                        <div class="product-name">Liberty Caps</div>
-                        <div class="product-desc">Small pointed, wild variety</div>
-                        <div class="product-price">€8/g</div>
-                    </div>
-                </div>
-            </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
-
-        <!-- EDIBLES -->
-        <div class="category">
-            <div class="cat-header">
-                <div class="cat-title">🍫 EDIBLES</div>
-                <div class="cat-price">Lab Tested THC Chocolate</div>
-            </div>
-            <div class="products">
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=300&fit=crop" alt="600mg">
-                    <div class="product-info">
-                        <div class="product-name">Chocolate Bar 600mg</div>
-                        <div class="product-desc">12 pieces x 50mg each</div>
-                        <div class="product-price">€40</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=300&fit=crop" alt="1000mg">
-                    <div class="product-info">
-                        <div class="product-name">Chocolate Bar 1000mg</div>
-                        <div class="product-desc">Extra strength, experienced</div>
-                        <div class="product-price">€60</div>
-                    </div>
-                </div>
-            </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
-
-        <!-- PREROLLS -->
-        <div class="category">
-            <div class="cat-header">
-                <div class="cat-title">🚬 PREROLLS</div>
-                <div class="cat-price">Infused & Ready to Smoke</div>
-            </div>
-            <div class="products">
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=400&h=300&fit=crop" alt="Moon Rocket">
-                    <div class="product-info">
-                        <div class="product-name">Moon Rocket</div>
-                        <div class="product-desc">Kief dipped, gold tip, 1.5g</div>
-                        <div class="product-price">€15</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1602161833201-d2d7c106c5f2?w=400&h=300&fit=crop" alt="Cali Woods">
-                    <div class="product-info">
-                        <div class="product-name">Cali Woods</div>
-                        <div class="product-desc">Premium CA, wood tip</div>
-                        <div class="product-price">€15</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1556928045-16f7f50be0f3?w=400&h=300&fit=crop" alt="Packwood">
-                    <div class="product-info">
-                        <div class="product-name">Packwood</div>
-                        <div class="product-desc">Blunt style, 2g infused</div>
-                        <div class="product-price">€15</div>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1620735692151-4c7056736f5e?w=400&h=300&fit=crop" alt="Baby Jeeter">
-                    <div class="product-info">
-                        <div class="product-name">Baby Jeeter</div>
-                        <div class="product-desc">5 pack mini infused</div>
-                        <div class="product-price">€30</div>
-                    </div>
-                </div>
-            </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
+        </section>
 
         <!-- HASH -->
-        <div class="category">
-            <div class="cat-header">
-                <div class="cat-title">🍯 HASH</div>
-                <div class="cat-price">Imported Traditional</div>
+        <section id="hash" class="section">
+            <div class="section-header">
+                <span class="section-icon">🍯</span>
+                <h2>Hash</h2>
             </div>
-            <div class="products">
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Hashish_compared.jpg/640px-Hashish_compared.jpg" alt="Moroccan">
+            <p class="section-subtitle">Traditional & Modern Extracts</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/Y6pN82b.jpg" alt="Moroccan Dry" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Moroccan Dry</div>
-                        <div class="product-desc">Blonde/brown, 35% THC</div>
-                        <div class="product-price">€10/g</div>
+                        <div class="product-details">Traditional Hash • 35% THC • Classic Pressed</div>
+                        <div class="product-price">10€ <span>/ gram</span></div>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Hashish_Resin.jpg/640px-Hashish_Resin.jpg" alt="Frozen Sift">
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/xM4Qknx.jpg" alt="Frozen Sift FB" class="product-image">
                     <div class="product-info">
                         <div class="product-name">Frozen Sift FB</div>
-                        <div class="product-desc">Ice water, 50% THC</div>
-                        <div class="product-price">€15/g</div>
+                        <div class="product-details">Full Bubble • 50% THC • Top Quality</div>
+                        <div class="product-price">15€ <span>/ gram</span></div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/FFc2dkD.jpg" alt="Premium Hash" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Premium Hash Selection</div>
+                        <div class="product-details">Various Strains • High Quality • Ask for stock</div>
+                        <div class="product-price">From 10€</div>
                     </div>
                 </div>
             </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
+        </section>
 
-        <!-- SPECIAL -->
-        <div class="category">
-            <div class="cat-header" style="background: linear-gradient(135deg, rgba(255,0,100,0.2) 0%, rgba(100,0,255,0.1) 100%);">
-                <div class="cat-title">🔥 SPECIAL</div>
-                <div class="cat-price">Exclusive Limited Stock</div>
+        <!-- EDIBLES -->
+        <section id="edibles" class="section">
+            <div class="section-header">
+                <span class="section-icon">🍫</span>
+                <h2>Edibles</h2>
             </div>
-            <div style="padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);">
-                <div class="special-item">
-                    <span style="font-size: 18px; font-weight: 600;">❄️ Premium Quality 1g</span>
-                    <span style="background: #ff0066; color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: 700;">€80</span>
+            <p class="section-subtitle">Precise Dosing • Lab Tested</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/CsZL6x4.jpg" alt="Edibles 600mg" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">THC Edibles</div>
+                        <div class="product-details">600mg THC • Multiple Flavors • Long Lasting</div>
+                        <div class="product-price">40€</div>
+                    </div>
                 </div>
-                <div class="special-item">
-                    <span style="font-size: 18px; font-weight: 600;">🧪 LSD Liquid 1ml</span>
-                    <span style="background: #ff0066; color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: 700;">€90</span>
-                </div>
-                <div class="special-item">
-                    <span style="font-size: 18px; font-weight: 600;">💎 Crystal 1g</span>
-                    <span style="background: #ff0066; color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: 700;">€50</span>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/CsZL6x4.jpg" alt="Edibles 1000mg" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">THC Edibles Extra</div>
+                        <div class="product-details">1000mg THC • High Potency • Experienced Users</div>
+                        <div class="product-price">60€</div>
+                    </div>
                 </div>
             </div>
-            <a href="https://t.me/mrshop20" class="cta">📲 ORDER NOW - @mrshop20</a>
-        </div>
+        </section>
+
+        <!-- VAPES -->
+        <section id="vape" class="section">
+            <div class="section-header">
+                <span class="section-icon">💨</span>
+                <h2>Vapes</h2>
+            </div>
+            <p class="section-subtitle">0.5ml • 85% THC • Premium Brands</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/6JgjcuH.jpg" alt="Zkittlez Vape" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Zkittlez</div>
+                        <div class="product-details">0.5ml • 85% THC • Sweet & Fruity</div>
+                        <div class="product-price">65€</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/dggm9MQ.jpg" alt="Runtz/Cookie Vape" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Runtz / Cookie</div>
+                        <div class="product-details">0.5ml • 85% THC • Creamy & Sweet</div>
+                        <div class="product-price">65€</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/yFMSm3A.jpg" alt="Blue Dream Vape" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Blue Dream / White Widow</div>
+                        <div class="product-details">0.5ml • 85% THC • Balanced & Smooth</div>
+                        <div class="product-price">65€</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/Yam1Jx4.jpg" alt="Amnesia Vape" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Amnesia / Crack</div>
+                        <div class="product-details">0.5ml • 85% THC • Energetic & Strong</div>
+                        <div class="product-price">65€</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-2" style="color: var(--text-muted); margin-top: 2rem;">
+                <p><strong>Brands Available:</strong> Boutique Switch • Rug Zar • MUHAMEDS • STIIIZY • WHOLEMELT • Imking</p>
+            </div>
+        </section>
+
+        <!-- MUSHROOMS -->
+        <section id="mushrooms" class="section">
+            <div class="section-header">
+                <span class="section-icon">🍄</span>
+                <h2>Mushrooms</h2>
+            </div>
+            <p class="section-subtitle">Premium Quality • 8€/g</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/YgLYT8t.jpg" alt="Albinos" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Albinos / Golden Teacher</div>
+                        <div class="product-details">Psilocybin Mushrooms • Potent & Spiritual</div>
+                        <div class="product-price">8€ <span>/ gram</span></div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/IATp9Oo.jpg" alt="Purple Mystic" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Purple Mystic / Lion's Mane</div>
+                        <div class="product-details">Psilocybin & Medicinal • Various Strains</div>
+                        <div class="product-price">8€ <span>/ gram</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-2" style="color: var(--text-muted); margin-top: 2rem;">
+                <p>Also available: Oysters • Amazon • Liberty Caps</p>
+            </div>
+        </section>
+
+        <!-- PREROLLS -->
+        <section id="prerolls" class="section">
+            <div class="section-header">
+                <span class="section-icon">🚬</span>
+                <h2>Prerolls</h2>
+            </div>
+            <p class="section-subtitle">Ready to Smoke • Premium Quality</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://i.imgur.com/7835lP2.jpg" alt="Standard Prerolls" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Standard Prerolls</div>
+                        <div class="product-details">Moon Rocket / Cali Woods / Packwood • Ready to Smoke</div>
+                        <div class="product-price">15€</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.imgur.com/ZqGSpGM.jpg" alt="Baby Jeeter" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Baby Jeeter</div>
+                        <div class="product-details">Infused • High Potency • Premium Brand</div>
+                        <div class="product-price">30€</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL / STRONGDRUGS -->
+        <section id="special" class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Special</h2>
+            </div>
+            <p class="section-subtitle">High Quality • Lab Tested</p>
+            
+            <div class="special-grid">
+                <div class="special-card coke">
+                    <div class="special-icon">❄️</div>
+                    <div class="special-name">Cocaine</div>
+                    <div class="special-desc">Pure Fishscale • 1 Gram</div>
+                    <div class="special-price">80€</div>
+                    <img src="https://i.imgur.com/lbdXH0F.jpg" alt="Coke" style="width: 100%; border-radius: 10px; margin-top: 1rem; opacity: 0.8;">
+                </div>
+
+                <div class="special-card lsd">
+                    <div class="special-icon">🧪</div>
+                    <div class="special-name">LSD</div>
+                    <div class="special-desc">Liquid • 1ml • 200µg</div>
+                    <div class="special-price">90€</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem;">
+                        <img src="https://i.imgur.com/oytn91Q.jpg" alt="LSD" style="width: 100%; border-radius: 10px; opacity: 0.8;">
+                        <img src="https://i.imgur.com/wb6WSH7.jpg" alt="LSD" style="width: 100%; border-radius: 10px; opacity: 0.8;">
+                    </div>
+                </div>
+
+                <div class="special-card meth">
+                    <div class="special-icon">💎</div>
+                    <div class="special-name">Crystal Meth</div>
+                    <div class="special-desc">Ice Quality • 1 Gram</div>
+                    <div class="special-price">50€</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem;">
+                        <img src="https://i.imgur.com/OEINdHv.jpg" alt="Meth" style="width: 100%; border-radius: 10px; opacity: 0.8;">
+                        <img src="https://i.imgur.com/4D4369a.jpg" alt="Meth" style="width: 100%; border-radius: 10px; opacity: 0.8;">
+                    </div>
+                </div>
+
+                <div class="special-card mdma">
+                    <div class="special-icon">💊</div>
+                    <div class="special-name">MDMA</div>
+                    <div class="special-desc">Crystal/Pills • High Purity</div>
+                    <div class="special-price">Ask for Price</div>
+                    <img src="https://i.imgur.com/8klJQ1K.jpg" alt="MDMA" style="width: 100%; border-radius: 10px; margin-top: 1rem; opacity: 0.8;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Spain Cannabis Clubs -->
+        <section class="spain-section">
+            <h2>🇪🇸 Cannabis Clubs in Spain</h2>
+            <div class="spain-content">
+                <div class="spain-info">
+                    <h3>Membership Information</h3>
+                    <p>Clubs in Spain are for <strong>residents only</strong> and you need an invitation to join.</p>
+                    <ul>
+                        <li>Sign-up fee: <span class="price-highlight">€50</span></li>
+                        <li>Includes: <span class="price-highlight">€30 credit</span> to spend inside</li>
+                        <li>Membership duration: <strong>1 year</strong></li>
+                        <li>Access to premium strains and products</li>
+                        <li>Safe and legal consumption space</li>
+                    </ul>
+                </div>
+                <div class="spain-alt">
+                    <h4>🏠 Home Delivery Alternative</h4>
+                    <p>Don't want to join a club? No problem!</p>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">We offer <strong>discrete home delivery</strong> across Spain. Same quality products delivered directly to your door.</p>
+                    <a href="https://t.me/mrshop20" target="_blank" class="telegram-btn" style="margin-top: 1.5rem; display: inline-flex;">
+                        Contact for Delivery
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </div>
 
+    <!-- Footer -->
     <footer>
-        <div style="font-size: 36px; font-weight: 900; color: #00ff88; margin-bottom: 15px;">MR SHOP</div>
-        <p>⚡ 1 Hour Maximum Delivery ⚡</p>
-        <p style="margin: 10px 0;">Official: <strong style="color: #00ff88;">@mrshop20</strong></p>
-        
-        <div class="warning">
-            🔞 VIETATO AI MINORI DI 18 ANNI<br>
-            18+ ONLY - FOR ADULTS ONLY
+        <div class="footer-content">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">@mrshop20</h3>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Premium Quality • Discreet Service • Worldwide Shipping</p>
+            
+            <a href="https://t.me/mrshop20" target="_blank" class="footer-telegram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.122-2.678-1.8-1.185-.78-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.093.034.305.019.471z"/>
+                </svg>
+                Order on Telegram: @mrshop20
+            </a>
+
+            <div class="warning-badge">🔞 Strictly 18+ • Adults Only</div>
+
+            <div class="disclaimer">
+                <p>This website is for informational purposes only. All products are sold in compliance with local laws.</p>
+                <p>By using this site you confirm you are of legal age in your jurisdiction.</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">© 2024 @mrshop20 • All rights reserved</p>
+            </div>
         </div>
-        
-        <p style="margin-top: 30px; color: #666;">© 2025 MR SHOP</p>
     </footer>
+
+    <script>
+        // Age Verification
+        function verifyAge(isAdult) {
+            if (isAdult) {
+                document.getElementById('age-verify').style.display = 'none';
+                sessionStorage.setItem('ageVerified', 'true');
+            } else {
+                window.location.href = 'https://www.google.com';
+            }
+        }
+
+        // Check if already verified
+        if (sessionStorage.getItem('ageVerified')) {
+            document.getElementById('age-verify').style.display = 'none';
+        }
+
+        // Smooth scroll and active nav
+        document.querySelectorAll('.cat-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.cat-nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .special-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
 </body>
-                            </html>
+                    </html>
